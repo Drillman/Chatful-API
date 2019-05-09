@@ -1,4 +1,5 @@
 import Server from './server'
 
-const server = new Server(3000)
+let port:number = parseInt(process.env.PORT) ||3000
+const server = new Server(port);
 server.start()
