@@ -1,5 +1,6 @@
 import * as express from "express"
 import Router from './routers/router-test'
+import UserRouter from './routers/user.routes'
 import UserMiddleware from './middlewares/users-middleware'
 
 export default class Server {
@@ -13,7 +14,8 @@ export default class Server {
     const app = express()
     app.use('/:userId', UserMiddleware)
     app.use('/', Router)
-    app.listen(this.port, function (){
+    app.use('/',UserRouter)
+    app.listen(this.port, ()=>{
       console.log(`Server is live on port -> ${this.port}`)
     })
   }
