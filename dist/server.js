@@ -12,7 +12,7 @@ class Server {
         app.use('/:userId', users_middleware_1.default);
         app.use('/', router_test_1.default);
         app.listen(this.port, function () {
-            console.log('the server is up');
+            console.log("Server is live on port -> ${this.port}");
         });
     }
 }

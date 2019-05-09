@@ -14,7 +14,7 @@ export default class Server {
     app.use('/:userId', UserMiddleware)
     app.use('/', Router)
     app.listen(this.port, function (){
-      console.log("Server is live on port -> ${this.port}")
+      console.log(`Server is live on port -> ${this.port}`)
     })
   }
 }
