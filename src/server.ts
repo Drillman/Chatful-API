@@ -1,4 +1,6 @@
 import * as express from "express"
+import * as mongoose from 'mongoose'
+import * as config from '../config'
 // import Router from './routers/router-test'
 import UserRouter from './routers/user.routes'
 // import UserMiddleware from './middlewares/users-middleware'
@@ -21,6 +23,7 @@ export default class Server {
     // app.use('/', Router)
     app.use('/',UserRouter)
 
+    mongoose.connect(`mongodb://${config.DB_USERNAME}:${config.DB_PASSWORD}@${config.DB_URL}`, {useNewUrlParser: true});
     app.listen(this.port, ()=>{
       console.log(`Server is live on port -> ${this.port}`)
     })
