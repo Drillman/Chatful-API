@@ -10,10 +10,12 @@ router.post('/user/register', function(req: express.Request, res: express.Respon
   newUser.save(function(err){
     if(err){
       console.error(err)
+      const result = ChatfulHelper.createMessage("Something went wrong during your registration :s")
+    }else{
+      const result:object = ChatfulHelper.createMessage("You are registered, to complete the process please check your inbox. You shloud have received an email to set your password. :)")
+      res.send(result)
     }
   })
-  const result:object = ChatfulHelper.createMessage("You are registered, to complete the process please check your inbox. You shloud have received an email to set your password. :)")
-  res.send(result)
 })
 
 
