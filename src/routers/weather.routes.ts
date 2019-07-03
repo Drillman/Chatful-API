@@ -16,6 +16,7 @@ router.post('/weather', function(req: express.Request, res: express.Response) {
       res.json(response)
     })
     .catch(error => {
+      console.error(error)
       if (error.statusCode == 404) {
         const response = ChatfulHelper.createMessage(`It seems that ${city} does not exist`)
         return res.json(response)
